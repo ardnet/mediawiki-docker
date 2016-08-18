@@ -47,6 +47,9 @@ RUN set -x; \
     && git checkout $MEDIAWIKI_VERSION \
     && git submodule update --init
 
+# Install curl too...
+RUN apt-get install php5-curl
+
 COPY php.ini /usr/local/etc/php/conf.d/mediawiki.ini
 
 COPY apache/mediawiki.conf /etc/apache2/
